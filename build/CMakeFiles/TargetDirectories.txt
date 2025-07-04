@@ -1,0 +1,3 @@
+/home/pavel/Desktop/projects/snifferV2/build/CMakeFiles/sniffer.dir
+/home/pavel/Desktop/projects/snifferV2/build/CMakeFiles/edit_cache.dir
+/home/pavel/Desktop/projects/snifferV2/build/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,1 @@
+/usr/bin/cc -Wall -Wextra CMakeFiles/sniffer.dir/sniffer.c.o CMakeFiles/sniffer.dir/utils/handle_signal.c.o CMakeFiles/sniffer.dir/utils/sniffer_params.c.o -o sniffer  -lpcap -ljansson 
