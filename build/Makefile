@@ -177,30 +177,6 @@ utils/handle_signal.c.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/sniffer.dir/build.make CMakeFiles/sniffer.dir/utils/handle_signal.c.s
 .PHONY : utils/handle_signal.c.s
 
-utils/sniffer_params.o: utils/sniffer_params.c.o
-.PHONY : utils/sniffer_params.o
-
-# target to build an object file
-utils/sniffer_params.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sniffer.dir/build.make CMakeFiles/sniffer.dir/utils/sniffer_params.c.o
-.PHONY : utils/sniffer_params.c.o
-
-utils/sniffer_params.i: utils/sniffer_params.c.i
-.PHONY : utils/sniffer_params.i
-
-# target to preprocess a source file
-utils/sniffer_params.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sniffer.dir/build.make CMakeFiles/sniffer.dir/utils/sniffer_params.c.i
-.PHONY : utils/sniffer_params.c.i
-
-utils/sniffer_params.s: utils/sniffer_params.c.s
-.PHONY : utils/sniffer_params.s
-
-# target to generate assembly for a file
-utils/sniffer_params.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/sniffer.dir/build.make CMakeFiles/sniffer.dir/utils/sniffer_params.c.s
-.PHONY : utils/sniffer_params.c.s
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -216,9 +192,6 @@ help:
 	@echo "... utils/handle_signal.o"
 	@echo "... utils/handle_signal.i"
 	@echo "... utils/handle_signal.s"
-	@echo "... utils/sniffer_params.o"
-	@echo "... utils/sniffer_params.i"
-	@echo "... utils/sniffer_params.s"
 .PHONY : help
 
 

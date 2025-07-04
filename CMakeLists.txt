@@ -10,14 +10,11 @@ pkg_check_modules(JANSSON REQUIRED jansson)
 set(SOURCES
     sniffer.c
     utils/handle_signal.c
-    utils/sniffer_params.c
 )
 
 # 4. Список заголовочных файлов
 set(HEADERS
-    include/sniffer.h
     include/utils/handle_signal.h
-    include/utils/sniffer_params.h
 )
 
 # 5. Создаём исполняемый файл
