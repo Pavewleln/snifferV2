@@ -2,6 +2,7 @@
 #include <netinet/in.h>                 
 #include <stdbool.h>
 #include <arpa/inet.h>
+#include <jansson.h>
 #include <net/ethernet.h>               // for ethernet header
 #include <netinet/ip.h>                 // for ipV4 header
 #include <netinet/ip6.h>                // for ipV6 header
@@ -14,7 +15,6 @@
 #include <pcap.h>                       // for libpcap
 #include <sys/socket.h>
 #include <unistd.h>
-
 #include "include/utils/handle_signal.h"
 
 // Параметры запуска
@@ -23,12 +23,17 @@ typedef struct {
     char *filter_exp;   // Фильтр BPF (например, "tcp port 80")
     bool save_to_json;  // Сохранять в JSON?
     bool verbose;       // Подробный вывод?
-} SnifferParams;
-
-SnifferParams params = { .interface = NULL, .filter_exp = NULL, .save_to_json = false, .verbose = false };
+} sniffer_params;
 
 // Функция для разбора аргументов
-SnifferParams parse_args(int argc, char **argv) {
+sniffer_params parse_args(int argc, char **argv) {
+
+    sniffer_params params = { 
+    .interface = NULL, 
+    .filter_exp = NULL, 
+    .save_to_json = false, 
+    .verbose = false 
+    };
     int opt;
 
     while ((opt = getopt(argc, argv, "i:f:jv")) != -1) {
@@ -96,7 +101,7 @@ void info_ipv6(struct ip6_hdr *ip6_hdr){
         ip6_hdr->ip6_ctlun.ip6_un1.ip6_un1_nxt);
 };
 
-void info_TCP(const struct tcphdr *tcp_hdr) {
+void info_tcp(const struct tcphdr *tcp_hdr) {
     printf("=== TCP Header -> ");
     printf("Source Port: %d ; ", ntohs(tcp_hdr->source));
     printf("Dest Port: %d ; ", ntohs(tcp_hdr->dest));
@@ -109,13 +114,13 @@ void info_TCP(const struct tcphdr *tcp_hdr) {
            tcp_hdr->urg ? "URG " : "");
 };
 
-void info_UDP(const struct udphdr *udp_hdr) {
+void info_udp(const struct udphdr *udp_hdr) {
     printf("=== UDP Header -> ");
     printf("Source Port: %d ; ", ntohs(udp_hdr->source));
     printf("Dest Port: %d \n", ntohs(udp_hdr->dest));
 };
 
-void info_ICMP() {
+void info_icmp() {
     printf("=== ICMP Header -> ");
     printf("ICMP packet detected\n");
 };
@@ -131,13 +136,13 @@ void packet_handler(__u_char *user_data, const struct pcap_pkthdr *pkthdr, const
             __u_char *transport = (__u_char *)ip_hdr + sizeof(struct iphdr);
             switch(ip_hdr->protocol) {
                 case IPPROTO_TCP:
-                    info_TCP((struct tcphdr *)transport);
+                    info_tcp((struct tcphdr *)transport);
                     break;
                 case IPPROTO_UDP:
-                    info_UDP((struct udphdr *)transport);
+                    info_udp((struct udphdr *)transport);
                     break;
                 case IPPROTO_ICMP:
-                    info_ICMP();
+                    info_icmp();
                     break;
             }
             break;
@@ -148,13 +153,13 @@ void packet_handler(__u_char *user_data, const struct pcap_pkthdr *pkthdr, const
             __u_char *transportv6 = (__u_char *)ip6_hdr + sizeof(struct ip6_hdr);
             switch(ip6_hdr->ip6_ctlun.ip6_un1.ip6_un1_nxt) {
                 case IPPROTO_TCP:
-                    info_TCP((struct tcphdr *)transportv6);
+                    info_tcp((struct tcphdr *)transportv6);
                     break;
                 case IPPROTO_UDP:
-                    info_UDP((struct udphdr *)transportv6);
+                    info_udp((struct udphdr *)transportv6);
                     break;
                 case IPPROTO_ICMPV6:
-                    info_ICMP();
+                    info_icmp();
                     break;
             }
             break;
@@ -170,12 +175,11 @@ void packet_handler(__u_char *user_data, const struct pcap_pkthdr *pkthdr, const
 int main (int argc, char **argv){
 
     char errbuf[PCAP_ERRBUF_SIZE];
-    params = parse_args(argc, argv);
+    sniffer_params params = parse_args(argc, argv);
     if (params.interface == NULL) {
         fprintf(stderr, "Error: No network interface specified. Use -i <interface>\n");
         fprintf(stderr, "Available interfaces:\n");
         
-        // Выводим список доступных интерфейсов
         pcap_if_t *alldevs;
         if (pcap_findalldevs(&alldevs, errbuf) == -1) {
             fprintf(stderr, "Error finding devices: %s\n", errbuf);
@@ -195,7 +199,6 @@ int main (int argc, char **argv){
     if (handle == NULL) {
         fprintf(stderr, "Error opening interface %s: %s\n", params.interface, errbuf);
         
-        // Проверяем, существует ли вообще такой интерфейс
         pcap_if_t *alldevs;
         if (pcap_findalldevs(&alldevs, errbuf) != -1) {
             int found = 0;

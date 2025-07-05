@@ -72,6 +72,13 @@ CMakeFiles/sniffer.dir/sniffer.c.o: /home/pavel/Desktop/projects/snifferV2/sniff
   /usr/include/x86_64-linux-gnu/bits/in.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h \
   /usr/include/arpa/inet.h \
+  /usr/local/include/jansson.h \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/local/include/jansson_config.h \
   /usr/include/net/ethernet.h \
   /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h \
   /usr/include/stdint.h \
@@ -94,11 +101,6 @@ CMakeFiles/sniffer.dir/sniffer.c.o: /home/pavel/Desktop/projects/snifferV2/sniff
   /usr/include/netinet/ip_icmp.h \
   /usr/include/netinet/if_ether.h \
   /usr/include/net/if_arp.h \
-  /usr/include/stdlib.h \
-  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
-  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
-  /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
   /usr/local/include/pcap.h \
   /usr/local/include/pcap/pcap.h \
   /usr/local/include/pcap/funcattrs.h \
@@ -208,6 +210,10 @@ CMakeFiles/sniffer.dir/utils/handle_signal.c.o: /home/pavel/Desktop/projects/sni
 /usr/include/x86_64-linux-gnu/bits/sigaction.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
@@ -343,8 +349,6 @@ CMakeFiles/sniffer.dir/utils/handle_signal.c.o: /home/pavel/Desktop/projects/sni
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_iovec.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
-
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
 /usr/include/x86_64-linux-gnu/bits/ss_flags.h:
@@ -368,6 +372,26 @@ CMakeFiles/sniffer.dir/utils/handle_signal.c.o: /home/pavel/Desktop/projects/sni
 /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h:
 
 /usr/include/x86_64-linux-gnu/bits/in.h:
+
+/usr/local/include/jansson.h:
+
+/usr/include/x86_64-linux-gnu/asm/socket.h:
+
+/usr/include/stdlib.h:
+
+/usr/local/include/pcap.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/alloca.h:
+
+/usr/local/include/jansson_config.h:
+
+/usr/local/include/pcap/socket.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h:
 
@@ -407,20 +431,6 @@ CMakeFiles/sniffer.dir/utils/handle_signal.c.o: /home/pavel/Desktop/projects/sni
 
 /usr/include/net/if_arp.h:
 
-/usr/include/x86_64-linux-gnu/asm/socket.h:
-
-/usr/include/stdlib.h:
-
-/usr/local/include/pcap.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
-/usr/include/alloca.h:
-
 /usr/local/include/pcap/pcap-inttypes.h:
 
 /usr/local/include/pcap/pcap.h:
@@ -428,8 +438,6 @@ CMakeFiles/sniffer.dir/utils/handle_signal.c.o: /home/pavel/Desktop/projects/sni
 /usr/local/include/pcap/funcattrs.h:
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
-
-/usr/local/include/pcap/socket.h:
 
 /usr/include/netinet/in.h:
 
@@ -468,5 +476,3 @@ CMakeFiles/sniffer.dir/utils/handle_signal.c.o: /home/pavel/Desktop/projects/sni
 /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:

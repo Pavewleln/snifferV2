@@ -65,7 +65,11 @@ CMakeFiles/sniffer.dir/sniffer.c.o: \
  /usr/include/x86_64-linux-gnu/bits/types/struct_osockaddr.h \
  /usr/include/x86_64-linux-gnu/bits/in.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdbool.h \
- /usr/include/arpa/inet.h /usr/include/net/ethernet.h \
+ /usr/include/arpa/inet.h /usr/local/include/jansson.h \
+ /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+ /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
+ /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+ /usr/local/include/jansson_config.h /usr/include/net/ethernet.h \
  /usr/lib/gcc/x86_64-linux-gnu/12/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/wchar.h /usr/include/linux/if_ether.h \
  /usr/include/linux/types.h /usr/include/x86_64-linux-gnu/asm/types.h \
@@ -78,9 +82,6 @@ CMakeFiles/sniffer.dir/sniffer.c.o: \
  /usr/include/strings.h /usr/include/netinet/tcp.h \
  /usr/include/netinet/udp.h /usr/include/netinet/ip_icmp.h \
  /usr/include/netinet/if_ether.h /usr/include/net/if_arp.h \
- /usr/include/stdlib.h /usr/include/x86_64-linux-gnu/bits/waitflags.h \
- /usr/include/x86_64-linux-gnu/bits/waitstatus.h /usr/include/alloca.h \
- /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
  /usr/local/include/pcap.h /usr/local/include/pcap/pcap.h \
  /usr/local/include/pcap/funcattrs.h \
  /usr/local/include/pcap/compiler-tests.h \
