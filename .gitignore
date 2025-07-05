@@ -1,2 +1,51 @@
-.vscode
-./build
+# Бинарные файлы и исполняемые файлы
+/sniffer
+*.o
+*.a
+*.so
+*.out
+*.exe
+
+# Директории сборки
+/build/
+/CMakeFiles/
+/cmake-build-debug/
+/cmake-build-release/
+
+# Файлы CMake
+CMakeCache.txt
+CMakeUserPresets.json
+Makefile
+cmake_install.cmake
+*.cmake
+
+# Артефакты IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*.kdev4
+*.user
+
+# Логи и выходные данные
+*.log
+*.pcap
+*.json
+packets.json
+traffic_*
+
+# Системные файлы
+.DS_Store
+Thumbs.db
+
+# Документация
+/docs/_build/
+/docs/generated/
+
+# Резервные копии
+*~
+*.bak
+*.backup
+
+# Тестовые данные
+/tests/output/
